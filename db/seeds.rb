@@ -6,14 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 codes = [35519, 22199, 32307]
-3.times do
 
-    User.create(
-    name: Faker::Name.name ,
-    code: codes.sample 
-    )
+User.create([
 
-end
+
+{
+    name: "John Jay",
+    code: "33221",
+    user_name: "johnj11"
+
+}, 
+
+{
+    name: "Ikenna Nicolas",
+    code: "40404",
+    user_name: "ekaynuh"
+}
+])
 
 
 ColorStory.create([{
@@ -56,3 +65,4 @@ ColorStory.create([{
   },
   ])
 
+puts "hey big head"

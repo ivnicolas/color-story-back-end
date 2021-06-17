@@ -4,6 +4,8 @@ class ColorStoriesController < ApplicationController
   # GET /color_stories
   def index
     @color_stories = ColorStory.all
+    
+    # byebug
 
     render json: @color_stories
   end
@@ -15,8 +17,12 @@ class ColorStoriesController < ApplicationController
 
   # POST /color_stories
   def create
-    @color_story = ColorStory.new(color_story_params)
 
+    @color_story = ColorStory.new(color_story_params)
+   
+    @user =  User.find_or_create_by(user_name: params[:user])
+    @color_story.user_id = @user.id
+    
     if @color_story.save
       render json: @color_story, status: :created, location: @color_story
     else
